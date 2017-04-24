@@ -1,0 +1,25 @@
+<template>
+    <div>
+        <ul class="notelist">
+            <note :key="note" class="note-item" v-for="note in notes" :noteName="note[0]" :noteType="note[1]" :noteOrder="note[2]"></note>
+        </ul>
+    </div>
+</template>
+
+<script>
+import Note from './Note.vue';
+
+export default {
+    name: 'note-list',
+    props: ['notes'],
+    components: {
+        Note
+    }
+}
+</script>
+
+<style scoped>
+    ul {
+        margin: 0 auto;
+    }
+</style>
