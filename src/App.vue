@@ -31,6 +31,7 @@ body {
 
 .box {
     border-radius: 1px;
+    box-shadow: 0 2px 3px rgba(29, 29, 29, 0.05), 0 0 0 1px rgba(29, 29, 29, 0.05);
 }
 
 

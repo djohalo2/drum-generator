@@ -18,7 +18,7 @@ export default {
 
     .header {
         text-align: center;
-        padding: 8rem;
+        padding: 5rem;
         background-image: url('/static/img/header.jpg');
     }
 </style>

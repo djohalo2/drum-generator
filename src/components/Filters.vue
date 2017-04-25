@@ -1,5 +1,5 @@
 <template>
-    <div class="column is-2">
+    <div class="column is-3">
         <div class="box">
             <h2 class="card-header">Filters</h2>
             <h3>Note types</h3>

@@ -7,7 +7,7 @@
                 <div class="column is-10 is-offset-1">
                     <div class="columns">
                         <filters></filters>
-                        <div class="column is-10">
+                        <div class="column is-9">
                             <div class="box">
                                 <h2 class="card-header">Generator</h2>
                                 <note-list></note-list>
