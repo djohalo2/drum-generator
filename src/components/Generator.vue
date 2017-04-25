@@ -11,7 +11,8 @@
                             <div class="box">
                                 <h2 class="card-header">Generator</h2>
                                 <note-list></note-list>
-                                <button v-on:click="generateNotes" class="button is-medium is-danger is-outlined">Generate</button>
+                                <button v-on:click="generateNotes" class="button is-medium is-primary">Generate</button>
+                                <note-amount></note-amount>
                                 <audio-control></audio-control>
                             </div>
                         </div>
@@ -27,6 +28,7 @@ import TopHeader from './TopHeader.vue';
 import NoteList from './NoteList.vue';
 import Filters from './Filters.vue';
 import AudioControl from './AudioControl.vue';
+import NoteAmount from './NoteAmount.vue';
 
 export default {
     name: 'generator',
@@ -34,7 +36,8 @@ export default {
         TopHeader,
         NoteList,
         AudioControl,
-        Filters
+        Filters,
+        NoteAmount
     },
     created() {
         this.generateNotes();
@@ -47,7 +50,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
     .box {
         margin-top: 3rem;
     }

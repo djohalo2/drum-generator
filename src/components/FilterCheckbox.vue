@@ -35,6 +35,7 @@ export default {
     label {
         color: #F7F7F7;
         font-size: 0.9rem;
+        padding: 0.4rem 0;
     }
 
     [type="checkbox"]:not(:checked),

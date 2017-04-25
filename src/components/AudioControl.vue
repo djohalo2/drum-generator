@@ -17,7 +17,8 @@ export default {
         ...mapGetters({
             notes: 'generatedNotes',
             bpm: 'currentBpm',
-            noteTypes: 'noteTypes'
+            noteTypes: 'noteTypes',
+            noteAmount: 'noteAmount'
         })
     },
     data(){
@@ -29,7 +30,7 @@ export default {
         }
     },
     beforeDestroy() {
-        this.stopPlaying();    
+        this.stopPlaying();
     },
     methods: {
         //Play the generated notes based on note type and set bpm
@@ -62,7 +63,7 @@ export default {
                 this.playNotes();
                 this.notePlayer = setInterval(() => {
                     this.playNotes()
-                }, (60000 / this.bpm) * 4);
+                }, (60000 / this.bpm) * this.noteAmount);
             }
         },
         //Stop all timeouts and clear interval to stop playing the notes

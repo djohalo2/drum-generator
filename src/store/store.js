@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import _ from 'lodash';
-import { GENERATE_NOTES, TOGGLE_FILTER } from './mutation-types';
+import { GENERATE_NOTES, TOGGLE_FILTER, ADD_NOTE_AMOUNT, REMOVE_NOTE_AMOUNT } from './mutation-types';
 
 Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
         notes: [],
+        noteAmount: 4,
         availableNotes: [
             {
                 note: "kick",
@@ -63,6 +64,9 @@ export const store = new Vuex.Store({
         generatedNotes(state) {
             return state.notes;
         },
+        noteAmount(state) {
+            return state.noteAmount;
+        },
         currentBpm(state) {
             return state.bpm;
         },
@@ -86,7 +90,7 @@ export const store = new Vuex.Store({
             let randomNote = [];
             let randomNoteType = [];
 
-            for(let i = 0;i < 4; i++){
+            for(let i = 0;i < state.noteAmount; i++){
                 randomNote = store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note;
                 randomNoteType = store.getters.activeNoteTypes[_.random(store.getters.activeNoteTypes.length - 1)].type;
 
@@ -104,6 +108,22 @@ export const store = new Vuex.Store({
         [TOGGLE_FILTER](state, payload) {
             const target = _.find(state[payload.category], payload.filterObject);
             target.active = !target.active;
+        },
+        [ADD_NOTE_AMOUNT](state) {
+            if(state.noteAmount >= 4){
+                state.noteAmount += 4;
+            }else if(state.noteAmount == 2){
+                state.noteAmount += 2;
+            }
+        },
+        [REMOVE_NOTE_AMOUNT](state) {
+            if(state.noteAmount > 4){
+                state.noteAmount -= 4;
+            }else if(state.noteAmount == 4){
+                state.noteAmount -= 2;
+            }else {
+
+            }
         }
     },
     actions: {
