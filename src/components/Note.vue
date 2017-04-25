@@ -3,10 +3,9 @@
             <img v-if="noteOrder == 'second' && noteType == 'eighth'" v-bind:src="'/static/img/notes/' + noteType + '-bar.png'"/>
             <img v-if="noteOrder == 'first'" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-first.png'"/>
             <img v-if="noteOrder != 'first'" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second.png'"/>
-            <img v-if=" noteOrder == 'second' && noteType == 'eighth' ||
-                        noteOrder == 'fourth' && noteType == 'sixteenth' ||
-                        noteOrder == 'first' && noteType == 'quarter'"
-            src="/static/img/notes/gap.png"/>
+            <img
+                v-if="noteOrder == 'second' && noteType == 'eighth' || noteOrder == 'fourth' && noteType == 'sixteenth' || noteOrder == 'first' && noteType == 'quarter'"
+                src="/static/img/notes/gap.png"/>
         </li>
 </template>
 

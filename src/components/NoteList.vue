@@ -14,6 +14,11 @@ export default {
     props: ['notes'],
     components: {
         Note
+    },
+    computed: {
+        notes(){
+            return this.$store.getters.generatedNotes;
+        }
     }
 }
 </script>
