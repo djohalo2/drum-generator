@@ -1,0 +1,2 @@
+export const GENERATE_NOTES = 'GENERATE_NOTES';
+export const TOGGLE_FILTER = 'TOGGLE_FILTER';

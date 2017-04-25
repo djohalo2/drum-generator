@@ -28,6 +28,9 @@ export default {
             prevNoteDuration: 0
         }
     },
+    beforeDestroy() {
+        this.stopPlaying();    
+    },
     methods: {
         //Play the generated notes based on note type and set bpm
         playNotes() {

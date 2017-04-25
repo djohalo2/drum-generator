@@ -7,15 +7,11 @@
                 <div class="column is-10 is-offset-1">
                     <div class="columns">
                         <filters></filters>
-
                         <div class="column is-10">
                             <div class="box">
                                 <h2 class="card-header">Generator</h2>
-
                                 <note-list></note-list>
-
                                 <button v-on:click="generateNotes" class="button is-medium is-danger is-outlined">Generate</button>
-
                                 <audio-control></audio-control>
                             </div>
                         </div>
@@ -45,7 +41,7 @@ export default {
     },
     methods: {
         generateNotes(){
-            this.$store.commit('generateNotes');
+            this.$store.commit('GENERATE_NOTES');
         }
     }
 }

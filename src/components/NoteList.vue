@@ -11,7 +11,6 @@ import Note from './Note.vue';
 
 export default {
     name: 'note-list',
-    props: ['notes'],
     components: {
         Note
     },

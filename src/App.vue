@@ -29,5 +29,9 @@ body {
     min-height: 100%;
 }
 
+.box {
+    border-radius: 1px;
+}
+
 
 </style>

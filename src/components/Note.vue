@@ -5,7 +5,8 @@
             <img v-if="noteOrder != 'first'" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second.png'"/>
             <img
                 v-if="noteOrder == 'second' && noteType == 'eighth' || noteOrder == 'fourth' && noteType == 'sixteenth' || noteOrder == 'first' && noteType == 'quarter'"
-                src="/static/img/notes/gap.png"/>
+                src="/static/img/notes/gap.png"
+            />
         </li>
 </template>
 

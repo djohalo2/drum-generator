@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import _ from 'lodash';
+import { GENERATE_NOTES, TOGGLE_FILTER } from './mutation-types';
 
 Vue.use(Vuex);
 
@@ -80,12 +81,10 @@ export const store = new Vuex.Store({
     },
     mutations: {
         //Generate a set of notes based on notetypes
-        generateNotes(state) {
+        [GENERATE_NOTES](state) {
             state.notes = [];
             let randomNote = [];
             let randomNoteType = [];
-
-            console.log(store.getters.activeAvailableNotes[0].note);
 
             for(let i = 0;i < 4; i++){
                 randomNote = store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note;
@@ -102,7 +101,7 @@ export const store = new Vuex.Store({
                 }
             };
         },
-        toggleFilter(state, payload) {
+        [TOGGLE_FILTER](state, payload) {
             const target = _.find(state[payload.category], payload.filterObject);
             target.active = !target.active;
         }

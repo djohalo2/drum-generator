@@ -24,7 +24,7 @@ export default {
                 filterObject: filterObject,
                 category: category
             };
-            this.$store.commit('toggleFilter', payload);
+            this.$store.commit('TOGGLE_FILTER', payload);
         }
     }
 }
@@ -32,5 +32,13 @@ export default {
 </script>
 
 <style scoped>
+    label {
+        color: #F7F7F7;
+        font-size: 0.9rem;
+    }
 
+    [type="checkbox"]:not(:checked),
+    [type="checkbox"]:checked {
+        background: red;
+    }
 </style>
