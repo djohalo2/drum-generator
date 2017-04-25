@@ -6,12 +6,7 @@
             <div class="columns">
                 <div class="column is-10 is-offset-1">
                     <div class="columns">
-                        <div class="column is-2">
-                            <div class="box">
-                                <h2 class="card-header">Filters</h2>
-                                <!-- <filter-checkbox @filter-toggled="toggleFilter(key)" :noteType="key" :key="key" v-for="(value, key) in noteTypes"></filter-checkbox> -->
-                            </div>
-                        </div>
+                        <filters></filters>
 
                         <div class="column is-10">
                             <div class="box">
@@ -34,7 +29,7 @@
 <script>
 import TopHeader from './TopHeader.vue';
 import NoteList from './NoteList.vue';
-import FilterCheckbox from './FilterCheckbox.vue';
+import Filters from './Filters.vue';
 import AudioControl from './AudioControl.vue';
 
 export default {
@@ -42,8 +37,8 @@ export default {
     components: {
         TopHeader,
         NoteList,
-        FilterCheckbox,
-        AudioControl
+        AudioControl,
+        Filters
     },
     created() {
         this.generateNotes();
@@ -56,7 +51,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
     .box {
         margin-top: 3rem;
     }

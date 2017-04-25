@@ -2,8 +2,8 @@
     <div class="field">
         <p class="control">
           <label class="checkbox">
-            <input v-on:click="toggleFilter" v-model="checked" type="checkbox">
-            {{ noteType }}
+            <input v-on:click="toggleFilter(filterObject, category)" v-model="checked" type="checkbox">
+            {{ filter }}
           </label>
         </p>
     </div>
@@ -12,15 +12,19 @@
 <script>
 export default {
     name: 'filter-checkbox',
-    props: ['noteType'],
-    data(){
-        return {
-            checked: true
+    props: ['filter', 'value', 'filterObject', 'category'],
+    computed: {
+        checked(){
+            return this.value
         }
     },
     methods: {
-        toggleFilter() {
-            this.$emit('filter-toggled');
+        toggleFilter(filterObject, category){
+            const payload = {
+                filterObject: filterObject,
+                category: category
+            };
+            this.$store.commit('toggleFilter', payload);
         }
     }
 }
