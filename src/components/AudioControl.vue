@@ -1,7 +1,8 @@
 <template>
     <div>
-        <button v-on:click="loopPlaying" class="button is-medium is-danger is-outlined">Play</button>
-        <button v-on:click="stopPlaying" class="button is-medium is-danger is-outlined">Stop</button>
+        <h2 class="card-header">Control</h2>
+        <button v-on:click="loopPlaying" class="button is-medium is-primary"><span class="text-black">Play</span></button>
+        <button v-on:click="stopPlaying" class="button is-medium is-primary"><span class="text-black">Stop</span></button>
 
         <input v-model="bpm" v-on:change="changeBeatWhilePlaying">
     </div>
@@ -113,6 +114,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+    .card-header {
+        margin: 0.5rem;
+    }
 </style>

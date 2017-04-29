@@ -1,8 +1,8 @@
 <template>
     <div class="nav-wrapper">
         <div class="top-bar">
-            <a href="#">
-                Github repository
+            <a class="icon" href="#">
+                <i class="fa fa-github"></i>
             </a>
         </div>
         <nav class="nav">
@@ -10,19 +10,6 @@
           <div class="nav-left">
             <a class="nav-item">
                 <strong class="nav-title">DRUMGEN</strong>
-            </a>
-          </div>
-
-          <div class="nav-center">
-            <a class="nav-item">
-              <span class="icon">
-                <i class="fa fa-github"></i>
-              </span>
-            </a>
-            <a class="nav-item">
-              <span class="icon">
-                <i class="fa fa-twitter"></i>
-              </span>
             </a>
           </div>
 
@@ -38,9 +25,6 @@
             </a>
             <a class="nav-item">
               About
-            </a>
-            <a class="nav-item">
-              Contact
             </a>
           </div>
         </nav>

@@ -1,8 +1,9 @@
 <template>
     <div>
-        <button v-on:click="removeNoteAmount" class="button is-medium is-primary amount-button"><span>-</span></button>
+        <h2 class="card-header">Note amount</h2>
+        <button v-on:click="removeNoteAmount" class="button is-medium is-primary amount-button"><span class="text-black">-</span></button>
         <span class="amount-counter">{{ noteAmount }}</span>
-        <button v-on:click="addNoteAmount" class="button is-medium is-primary amount-button"><span>+</span></button>
+        <button v-on:click="addNoteAmount" class="button is-medium is-primary amount-button"><span class="text-black">+</span></button>
     </div>
 </template>
 
@@ -32,7 +33,6 @@ export default {
 
     .amount-counter {
         font-weight: bold;
-        font-size: 2rem;
         padding: 0 1rem;
     }
 

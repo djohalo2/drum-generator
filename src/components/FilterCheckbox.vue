@@ -1,9 +1,9 @@
 <template>
-    <div class="field">
+    <div class="field filter-item">
         <p class="control">
           <label class="checkbox">
             <input v-on:click="toggleFilter(filterObject, category)" v-model="checked" type="checkbox">
-            {{ filter }}
+            <span class="label-text">{{ filter }}</span>
           </label>
         </p>
     </div>
@@ -31,15 +31,16 @@ export default {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     label {
-        color: #F7F7F7;
+        color: #1D1D1D;
         font-size: 0.9rem;
         padding: 0.4rem 0;
+
+        &:hover {
+            color: #f2d435;
+        }
     }
 
-    [type="checkbox"]:not(:checked),
-    [type="checkbox"]:checked {
-        background: red;
-    }
+
 </style>

@@ -53,15 +53,12 @@ export default {
 
 <style scoped lang="scss">
     .box {
-        background-color: #1D1D1D;
-        border-color: #1D1D1D;
-
-        h2 {
-            font-size: 1.5rem;
-        }
+        background-color: #fff;
+        border-color: #fff;
 
         h3, h2 {
-            color:#f2d435;
+            color:#1D1D1D;
         }
+
     }
 </style>

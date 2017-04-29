@@ -11,9 +11,12 @@
                             <div class="box">
                                 <h2 class="card-header">Generator</h2>
                                 <note-list></note-list>
-                                <button v-on:click="generateNotes" class="button is-medium is-primary">Generate</button>
-                                <note-amount></note-amount>
-                                <audio-control></audio-control>
+                                <button v-on:click="generateNotes" class="button is-medium is-primary"><span class="text-black">Generate</span></button>
+                            </div>
+
+                            <div class="box control">
+                                <audio-control class="control-component"></audio-control>
+                                <note-amount class="control-component"></note-amount>
                             </div>
                         </div>
                     </div>
@@ -51,11 +54,16 @@ export default {
 </script>
 
 <style lang="scss">
-    .box {
+    .container {
         margin-top: 3rem;
     }
 
-    button {
-        margin-bottom: 0.5rem;
+    .control-component {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    .card-header {
+        margin: 0 0.5rem 0.5rem 0.5rem !important;
     }
 </style>
