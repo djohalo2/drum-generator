@@ -19,18 +19,22 @@ export default {
         padding: 1.5rem;
         margin-top: 3rem;
         background-color: #1D1D1D;
-
+        position: absolute;
+        bottom: 0;
+        width: 100%;
 
         .container {
             margin-top: 0;
 
             p, a {
                 color: #fff;
+                font-size: 14px;
 
                 .fa-heart {
                     color: #e74c3c;
                     margin-top: 5px;
                     padding: 0 0.2rem;
+                    font-size: 14px;
                 }
             }
         }

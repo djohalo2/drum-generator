@@ -1,8 +1,7 @@
 <template>
     <div class="column is-3">
         <div class="box">
-            <h2 class="card-header">Filters</h2>
-            <h3>Note types</h3>
+            <h3 class="card-header">Note types</h3>
             <filter-checkbox
                 :category="categories.noteTypes"
                 :filterObject="type"
@@ -12,7 +11,7 @@
                 v-for="type in noteTypes">
             </filter-checkbox>
 
-            <h3>Notes</h3>
+            <h3 class="card-header">Notes</h3>
             <filter-checkbox
                 :category="categories.notes"
                 :filterObject="note"
@@ -58,6 +57,10 @@ export default {
 
         h3, h2 {
             color:#1D1D1D;
+        }
+
+        h3 {
+            margin-bottom: 0.5rem;
         }
 
     }

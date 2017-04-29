@@ -35,7 +35,7 @@ export default {
     label {
         color: #1D1D1D;
         font-size: 0.9rem;
-        padding: 0.4rem 0;
+        padding: 0.2rem 0;
 
         &:hover {
             color: #f2d435;

@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2 class="card-header">Control</h2>
-        <button v-on:click="loopPlaying" class="button is-medium is-primary"><span class="text-black">Play</span></button>
+        <button v-on:click="loopPlaying" class="button is-medium is-primary" v-bind:class="{playing: playing}"><span class="text-black" v-bind:class="{white: playing}">Play</span></button>
         <button v-on:click="stopPlaying" class="button is-medium is-primary"><span class="text-black">Stop</span></button>
 
         <input v-model="bpm" v-on:change="changeBeatWhilePlaying">
@@ -27,7 +27,9 @@ export default {
             timeOuts: [],
             notePlayer: "",
             currentTotalDuration: 0,
-            prevNoteDuration: 0
+            prevNoteDuration: 0,
+            playing: false,
+            playingNote: ""
         }
     },
     beforeDestroy() {
@@ -44,7 +46,7 @@ export default {
                 this.currentTotalDuration = note == 0 ? 0 : this.currentTotalDuration + this.prevNoteDuration;
 
                 this.timeOuts.push(setTimeout(() => {
-
+                    this.$store.commit('SET_PLAYING_NOTE', note);
                     this.playSample(samples[currentNote]);
 
                 }, this.currentTotalDuration));
@@ -110,12 +112,21 @@ export default {
 
             return modifier;
         },
+
     }
 }
 </script>
 
-<style>
+<style lang="scss">
     .card-header {
         margin: 0.5rem;
+    }
+
+    .playing {
+        background-color: #e74c3c !important;
+    }
+
+    .white {
+        color: #fff !important;
     }
 </style>

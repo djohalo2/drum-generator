@@ -1,8 +1,12 @@
 <template>
         <li v-bind:class="{'is-playing': isPlaying}">
             <img v-if="noteOrder == 'second' && noteType == 'eighth'" v-bind:src="'/static/img/notes/' + noteType + '-bar.png'"/>
-            <img v-if="noteOrder == 'first'" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-first.png'"/>
-            <img v-if="noteOrder != 'first'" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second.png'"/>
+            <img v-if="noteOrder == 'first' && !isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-first.png'"/>
+            <img v-if="noteOrder != 'first' && !isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second.png'"/>
+
+            <img v-if="noteOrder == 'first' && isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-first-active.png'"/>
+            <img v-if="noteOrder != 'first' && isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second-active.png'"/>
+
             <img
                 v-if="noteOrder == 'second' && noteType == 'eighth' || noteOrder == 'fourth' && noteType == 'sixteenth' || noteOrder == 'first' && noteType == 'quarter'"
                 src="/static/img/notes/gap.png"
@@ -17,14 +21,13 @@ export default {
     data() {
         return {
             isPlaying: false
-
         }
     }
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .is-playing {
         color: #f2d435;
     }

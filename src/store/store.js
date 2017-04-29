@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import _ from 'lodash';
-import { GENERATE_NOTES, TOGGLE_FILTER, ADD_NOTE_AMOUNT, REMOVE_NOTE_AMOUNT } from './mutation-types';
+import { GENERATE_NOTES, TOGGLE_FILTER, ADD_NOTE_AMOUNT, REMOVE_NOTE_AMOUNT, SET_PLAYING_NOTE, SET_NOTE_COMPONENTS } from './mutation-types';
 
 Vue.use(Vuex);
 
@@ -59,6 +59,7 @@ export const store = new Vuex.Store({
         ],
         bpm: 120,
         playing: false,
+        noteComponents: {}
     },
     getters: {
         generatedNotes(state) {
@@ -124,6 +125,17 @@ export const store = new Vuex.Store({
             }else {
 
             }
+        },
+        [SET_NOTE_COMPONENTS](state, payload) {
+            state.noteComponents = payload;
+        },
+        [SET_PLAYING_NOTE](state, index) {
+            if(index == 0){
+                state.noteComponents[state.noteComponents.length - 1]._data.isPlaying = false;
+            }else {
+                state.noteComponents[index - 1]._data.isPlaying = false;
+            }
+            state.noteComponents[index]._data.isPlaying = true;
         }
     },
     actions: {
