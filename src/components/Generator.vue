@@ -48,7 +48,7 @@ export default {
     methods: {
         generateNotes(){
             this.$store.commit('GENERATE_NOTES');
-            this.$store.commit('SET_NOTE_COMPONENTS', this.$refs.notelists.$children);
+            // this.$store.commit('SET_NOTE_COMPONENTS', this.$refs.notelists.$children);
         }
     }
 }

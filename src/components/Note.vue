@@ -1,5 +1,5 @@
 <template>
-        <li v-bind:class="{'is-playing': isPlaying}">
+        <li>
             <img v-if="noteOrder == 'second' && noteType == 'eighth'" v-bind:src="'/static/img/notes/' + noteType + '-bar.png'"/>
             <img v-if="noteOrder == 'first' && !isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-first.png'"/>
             <img v-if="noteOrder != 'first' && !isPlaying" v-bind:src="'/static/img/notes/' + noteName + '-' + noteType +  '-second.png'"/>
@@ -17,10 +17,10 @@
 <script>
 export default {
     name: 'note',
-    props: ['noteName', 'noteType', 'noteOrder'],
-    data() {
-        return {
-            isPlaying: false
+    props: ['noteName', 'noteType', 'noteOrder', 'index'],
+    computed: {
+        isPlaying() {
+            return this.$store.getters.generatedNotes[this.index][3];
         }
     }
 }

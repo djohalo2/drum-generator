@@ -59,7 +59,7 @@ export const store = new Vuex.Store({
         ],
         bpm: 120,
         playing: false,
-        noteComponents: {}
+        noteComponents: []
     },
     getters: {
         generatedNotes(state) {
@@ -95,14 +95,14 @@ export const store = new Vuex.Store({
                 randomNote = store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note;
                 randomNoteType = store.getters.activeNoteTypes[_.random(store.getters.activeNoteTypes.length - 1)].type;
 
-                state.notes.push([randomNote, randomNoteType, "first"]);
+                state.notes.push([randomNote, randomNoteType, "first", false]);
 
                 if(randomNoteType == "eighth"){
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second"]);
+                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second", false]);
                 }else if(randomNoteType == "sixteenth"){
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second"]);
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "third"]);
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "fourth"]);
+                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second", false]);
+                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "third", false]);
+                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "fourth", false]);
                 }
             };
         },
@@ -122,20 +122,15 @@ export const store = new Vuex.Store({
                 state.noteAmount -= 4;
             }else if(state.noteAmount == 4){
                 state.noteAmount -= 2;
-            }else {
-
             }
-        },
-        [SET_NOTE_COMPONENTS](state, payload) {
-            state.noteComponents = payload;
         },
         [SET_PLAYING_NOTE](state, index) {
             if(index == 0){
-                state.noteComponents[state.noteComponents.length - 1]._data.isPlaying = false;
+                state.notes[state.notes.length - 1][3] = false;
             }else {
-                state.noteComponents[index - 1]._data.isPlaying = false;
+                state.notes[index - 1][3] = false;
             }
-            state.noteComponents[index]._data.isPlaying = true;
+            state.notes[index].splice(3, 1, true);
         }
     },
     actions: {
