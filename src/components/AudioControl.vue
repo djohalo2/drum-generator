@@ -72,6 +72,8 @@ export default {
         //Stop all timeouts and clear interval to stop playing the notes
         stopPlaying() {
             this.playing = false;
+            this.$store.commit('CLEAR_PLAYING_NOTES');
+
             clearInterval(this.notePlayer);
             for(let timeout in this.timeOuts){
                 clearTimeout(this.timeOuts[timeout]);

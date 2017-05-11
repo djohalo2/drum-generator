@@ -10,7 +10,7 @@
                         <div class="column is-9">
                             <div class="box">
                                 <h2 class="card-header">Generator</h2>
-                                <note-list ref="notelists"></note-list>
+                                <note-list></note-list>
                                 <button v-on:click="generateNotes" class="button is-medium is-primary"><span class="text-black">Generate</span></button>
                             </div>
 
@@ -48,7 +48,6 @@ export default {
     methods: {
         generateNotes(){
             this.$store.commit('GENERATE_NOTES');
-            // this.$store.commit('SET_NOTE_COMPONENTS', this.$refs.notelists.$children);
         }
     }
 }
