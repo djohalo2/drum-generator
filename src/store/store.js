@@ -6,6 +6,7 @@ import getters from './getters';
 import { GENERATE_NOTES } from './mutation-types';
 
 import _ from 'lodash';
+import generator from '../scripts/fill-generator';
 
 Vue.use(Vuex);
 
@@ -68,25 +69,8 @@ export const store = new Vuex.Store({
     mutations: {
         ...mutations,
         [GENERATE_NOTES](state) {
-            state.notes = [];
-            let randomNote = [];
-            let randomNoteType = [];
-
-            for(let i = 0;i < state.noteAmount; i++){
-                randomNote = store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note;
-                randomNoteType = store.getters.activeNoteTypes[_.random(store.getters.activeNoteTypes.length - 1)].type;
-
-                state.notes.push([randomNote, randomNoteType, "first", false]);
-
-                if(randomNoteType == "eighth"){
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second", false]);
-                }else if(randomNoteType == "sixteenth"){
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "second", false]);
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "third", false]);
-                    state.notes.push([store.getters.activeAvailableNotes[_.random(store.getters.activeAvailableNotes.length - 1)].note, randomNoteType, "fourth", false]);
-                }
-            };
-        },
+            generator(state, store.getters.activeAvailableNotes, store.getters.activeNoteTypes);
+        }
     },
     actions
 });

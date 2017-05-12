@@ -113,8 +113,7 @@ export default {
             }
 
             return modifier;
-        },
-
+        }
     }
 }
 </script>
