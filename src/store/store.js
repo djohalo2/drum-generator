@@ -14,6 +14,7 @@ export const store = new Vuex.Store({
     state: {
         notes: [],
         noteAmount: 4,
+        rudiment: "random",
         availableNotes: [
             {
                 note: "kick",

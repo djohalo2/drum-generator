@@ -7,7 +7,11 @@ export default (state, activeAvailableNotes, activeNoteTypes) => {
     let randomNoteType = [];
 
     for(let i = 0;i < state.noteAmount; i++){
-        randomNoteType = generateNoteType(activeNoteTypes);
+        if(state.rudiment == "random"){
+            randomNoteType = generateNoteType(activeNoteTypes);
+        }else {
+            randomNoteType = "sixteenth"
+        }
 
         addNote(state, generateNote(activeAvailableNotes), randomNoteType, "first");
 
@@ -23,7 +27,17 @@ export default (state, activeAvailableNotes, activeNoteTypes) => {
 
 //Add note by combining given note properties into an array entry to the state notes
 const addNote = (state, randomNote, randomNoteType, noteOrder) => {
-    state.notes.push([randomNote, randomNoteType, noteOrder, false, generateAccent()]);
+    switch(true){
+        case state.rudiment == "paradiddle" && noteOrder == "first":
+            state.notes.push([randomNote, randomNoteType, noteOrder, false, true]);
+            break;
+        case state.rudiment == "paradiddle" && noteOrder != "first":
+            state.notes.push([randomNote, randomNoteType, noteOrder, false, false]);
+            break;
+        default:
+            state.notes.push([randomNote, randomNoteType, noteOrder, false, generateAccent()]);
+            break;
+    }
 }
 //Generate a random note from the available notes
 const generateNote = (activeAvailableNotes) => {
